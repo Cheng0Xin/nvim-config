@@ -1,0 +1,3 @@
+:set prompt "\ESC[34m\STX\x03BB\x1D61 > \ESC[m\STX"
+:set +t
+:def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
