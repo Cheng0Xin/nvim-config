@@ -201,3 +201,8 @@ require('lean').setup {
 
 -- Dot
 lspconfig.dotls.setup{}
+
+-- Racket
+-- requires: racket-langserver
+-- Install via raco: raco pkg install racket-langserver
+require'lspconfig'.racket_langserver.setup{}
