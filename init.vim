@@ -23,7 +23,7 @@ filetype plugin indent on
 " Plugin
 lua require('plugins')
 lua require('mini.trailspace').setup()
-lua require('mini.completion').setup()
+" "lua require('mini.completion').setup()
 lua require('mini.surround').setup()
 lua require('mini.jump').setup()
 lua require('mini.jump2d').setup()

@@ -206,3 +206,8 @@ lspconfig.dotls.setup{}
 -- requires: racket-langserver
 -- Install via raco: raco pkg install racket-langserver
 require'lspconfig'.racket_langserver.setup{}
+
+-- Haskell
+require('lspconfig')['hls'].setup{
+  filetypes = { 'haskell', 'lhaskell', 'cabal' },
+}
