@@ -126,6 +126,7 @@ require("lazy").setup {
     lazy = false,
   },
   -- dotnet Razor
-  'jlcrochet/vim-razor'
-
+  'jlcrochet/vim-razor',
+  -- dotnet FSharp
+  'ionide/Ionide-vim'
 }
