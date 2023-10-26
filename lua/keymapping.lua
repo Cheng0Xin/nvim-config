@@ -7,7 +7,7 @@ vim.cmd { cmd = 'nnoremap', args = { 'Y', 'yy' } }
 vim.keymap.set('n', '<C-x><C-s>',
   function() vim.cmd.write() MiniTrailspace.trim() end)
 
-vim.keymap.set('n', '<C-x><C-f>',
+vim.keymap.set('n', '<C-x>o',
   function() vim.cmd { cmd = 'Explore' } end)
 
 -- Execute make
@@ -29,7 +29,7 @@ vim.keymap.set('n', '<C-x>s',
 -- Find files or buffers
 local telescope = require('telescope.builtin')
 
-vim.keymap.set('n', '<C-x>o',
+vim.keymap.set('n', '<C-x><C-f>',
   function() telescope.find_files()  end)
 
 vim.keymap.set('n', '<C-Space>',
