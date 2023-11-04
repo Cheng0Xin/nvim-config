@@ -29,6 +29,9 @@ require("lazy").setup {
   -- LSP format
   'lukas-reineke/lsp-format.nvim',
 
+  -- Treesitter
+  'nvim-treesitter/nvim-treesitter',
+
   -- Smooth movement
   {
     'gen740/SmoothCursor.nvim',
@@ -93,6 +96,8 @@ require("lazy").setup {
   'Julian/lean.nvim',
   'nvim-lua/plenary.nvim', -- NOT CONF
 
+  -- Rainbow
+  'HiPhish/rainbow-delimiters.nvim',
 
   -- Ctrl-Space
   {
