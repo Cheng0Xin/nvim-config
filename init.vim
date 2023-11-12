@@ -16,6 +16,8 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+set completeopt=longest,menuone " Normal complete option
+
 syntax on
 filetype plugin on
 filetype plugin indent on
