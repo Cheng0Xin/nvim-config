@@ -80,7 +80,7 @@ lspconfig.ccls.setup {
 }
 
 lspconfig.typst_lsp.setup {
-  on_attach = require("lsp-format").on_attach,
+  -- on_attach = require("lsp-format").on_attach,
   settings = {
     exportPdf = "never"
   }
@@ -171,7 +171,7 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.texlab.setup {
-  on_attach = require("lsp-format").on_attach,
+  -- on_attach = require("lsp-format").on_attach,
   settings = {
     texlab = {
       auxDirectory = ".",

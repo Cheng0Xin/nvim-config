@@ -4,15 +4,14 @@ if handle ~= nil then
   handle:close()
 
   if string.find(back, "light") then
-    vim.cmd.colorscheme("tokyonight-day")
+    vim.cmd.colorscheme("limestone")
     vim.cmd [[set cursorline]]
   else
-    vim.cmd.colorscheme("tokyonight-moon")
+    vim.cmd.colorscheme("Mariana")
     vim.cmd [[set cursorline]]
   end
 
   return {
-    X=back
+    X = back
   }
 end
-
