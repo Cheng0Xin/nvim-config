@@ -7,7 +7,7 @@ if handle ~= nil then
     vim.cmd.colorscheme("limestone")
     vim.cmd [[set cursorline]]
   else
-    vim.cmd.colorscheme("Mariana")
+    vim.cmd.colorscheme("mariana")
     vim.cmd [[set cursorline]]
   end
 
