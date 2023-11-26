@@ -143,3 +143,18 @@ require 'marks'.setup {
 vim.diagnostic.config({
   virtual_text = false,
 })
+
+-- Configure autopair
+local Rule = require('nvim-autopairs.rule')
+local npairs = require('nvim-autopairs')
+
+npairs.add_rules({
+  Rule("$$", "$$", {
+    "tex", "latex", "typ"
+  }),
+  Rule("$", "$", {
+    "tex", "latex", "typ"
+  })
+})
+
+require("nvim-surround").setup()
