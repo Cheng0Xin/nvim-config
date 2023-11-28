@@ -3,6 +3,7 @@ vim.cmd { cmd = 'inoremap', args = { '<C-g>', '<esc>' } }
 vim.cmd { cmd = 'nnoremap', args = { 'H', '<Home>' } }
 vim.cmd { cmd = 'nnoremap', args = { 'L', '<End>' } }
 vim.cmd { cmd = 'nnoremap', args = { 'Y', 'yy' } }
+vim.cmd { cmd = 'nnoremap', args = { '<c-w>z', '<c-w>_|<c-w>|' } }
 
 vim.keymap.set('n', '<C-x><C-s>',
   function() vim.cmd.write() end)
