@@ -6,7 +6,16 @@ vim.cmd { cmd = 'nnoremap', args = { 'Y', 'yy' } }
 vim.cmd { cmd = 'nnoremap', args = { '<c-w>z', '<c-w>_|<c-w>|' } }
 
 vim.keymap.set('n', '<C-x><C-s>',
-  function() vim.cmd.write() end)
+  function()
+    vim.cmd.write()
+  end)
+
+vim.keymap.set('n', '<C-x>f',
+  function()
+    vim.lsp.buf.format {
+      async = false
+    }
+  end)
 
 vim.keymap.set('n', '<C-x>o',
   function() vim.cmd { cmd = 'Explore' } end)

@@ -26,8 +26,6 @@ require("lazy").setup {
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
   'hrsh7th/vim-vsnip',
-  -- LSP format
-  'lukas-reineke/lsp-format.nvim',
 
   -- Treesitter
   'nvim-treesitter/nvim-treesitter',
@@ -113,17 +111,28 @@ require("lazy").setup {
   -- Color themes
   { 'marko-cerovac/material.nvim' },
   {
-    'ray-x/starry.nvim',
-    requires = {
-      'marko-cerovac/material.nvim',
-      opt = true
-    }
-  },
-  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
+  },
+  { 'kepano/flexoki-neovim', name = 'flexoki' },
+  { 'rebelot/kanagawa.nvim' },
+  { 'rktjmp/lush.nvim' },
+  {
+    'uloco/bluloco.nvim',
+    lazy = false,
+    priority = 1000,
+    dependencies = { 'rktjmp/lush.nvim' },
+    config = function()
+      -- your optional config goes here, see below.
+    end,
+  },
+  { 'hachy/eva01.vim' },
+  {
+    "xero/miasma.nvim",
+    lazy = false,
+    priority = 1000,
   },
   -- Comment
   {
@@ -146,6 +155,8 @@ require("lazy").setup {
       })
     end
   },
+  -- Unicode input
+  'arthurxavierx/vim-unicoder',
   -- Marks
   'chentoast/marks.nvim',
   -- dotnet Razor

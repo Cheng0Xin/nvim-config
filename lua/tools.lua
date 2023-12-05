@@ -9,14 +9,15 @@ end
 
 function M.switchColorscheme()
   local myColors = {
-    "tokyonight-day", "tokyonight-moon",
-    "material", "moonlight", "Dracula",
-    "Dracula_blood", "Mariana", "limestone"
+    "tokyonight-day", "tokyonight-moon", "material",
+    "flexoki-dark", "flexoki-light",
+    "kanagawa-wave", "kanagawa-dragon", "kanagawa-lotus",
+    "bluloco-dark", "bluloco-light",
+    "eva01", "eva01-LCL", "miasma"
   }
-  vim.g.cur_color_idx = (vim.g.cur_color_idx + 1) % #myColors
+  vim.g.cur_color_idx = (vim.g.cur_color_idx + 1) % #myColors + 1
   local curColor = myColors[vim.g.cur_color_idx]
   vim.cmd.colorscheme(curColor)
-  print(curColor)
 end
 
 function M.getCurColor()

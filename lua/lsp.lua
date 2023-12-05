@@ -55,19 +55,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 lspconfig.rust_analyzer.setup {
   -- Server-specific settings. See `:help lspconfig-setup`
-  --
-  on_attach = require("lsp-format").on_attach,
   settings = {
     ['rust-analyzer'] = {},
   },
 }
 
 lspconfig.pylsp.setup {
-  on_attach = require("lsp-format").on_attach,
 }
 
 lspconfig.ccls.setup {
-  on_attach = require("lsp-format").on_attach,
   init_options = {
     compilationDatabaseDirectory = ".",
     completion = {
@@ -80,7 +76,6 @@ lspconfig.ccls.setup {
 }
 
 lspconfig.typst_lsp.setup {
-  -- on_attach = require("lsp-format").on_attach,
   settings = {
     exportPdf = "never"
   }
@@ -91,7 +86,6 @@ lspconfig.typst_lsp.setup {
 -- lspconfig.fsautocomplete.setup{}
 
 lspconfig.omnisharp.setup {
-  on_attach = require("lsp-format").on_attach,
   cmd = { "OmniSharp" },
 
   -- Enables support for reading code style, naming convention and analyzer
@@ -131,15 +125,12 @@ lspconfig.omnisharp.setup {
 }
 
 lspconfig.tailwindcss.setup {
-  on_attach = require("lsp-format").on_attach,
 }
 
 lspconfig.dolmenls.setup {
-  on_attach = require("lsp-format").on_attach,
 }
 
 lspconfig.lua_ls.setup {
-  on_attach = require("lsp-format").on_attach,
   on_init = function(client)
     local path = client.workspace_folders[1].name
     if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
@@ -171,7 +162,6 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.texlab.setup {
-  -- on_attach = require("lsp-format").on_attach,
   settings = {
     texlab = {
       auxDirectory = ".",
@@ -201,25 +191,21 @@ lspconfig.texlab.setup {
 
 -- Lean
 require('lean').setup {
-  on_attach = require("lsp-format").on_attach,
   lsp = { on_attach = vim.lsp.buf.code_action },
   mappings = true
 }
 
 -- Dot
 lspconfig.dotls.setup {
-  on_attach = require("lsp-format").on_attach,
 }
 
 -- Racket
 -- requires: racket-langserver
 -- Install via raco: raco pkg install racket-langserver
 lspconfig.racket_langserver.setup {
-  on_attach = require("lsp-format").on_attach,
 }
 
 -- Haskell
 lspconfig.hls.setup {
-  on_attach = require("lsp-format").on_attach,
   filetypes = { 'haskell', 'lhaskell', 'cabal' },
 }

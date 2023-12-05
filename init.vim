@@ -16,6 +16,8 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+autocmd Filetype cs setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+
 set completeopt=longest,menuone " Normal complete option
 
 syntax on
@@ -32,13 +34,6 @@ lua require('mini.jump2d').setup()
 lua require("autoclose").setup()
 lua require('details')
 
-" Theme related
-" colorscheme moonlight
-" colorscheme limestone
-" set cursorline
-" hi CursorLine term=bold cterm=bold guibg=Grey0
-lua require('color')
-
 " Keymapping
 lua require('keymapping')
 
@@ -48,3 +43,6 @@ lua require('lsp')
 " Dev section
 lua require('tools')
 command! Swicth lua require('tools').getCurColor()
+
+" Theme related
+lua require('color')
