@@ -209,3 +209,17 @@ lspconfig.racket_langserver.setup {
 lspconfig.hls.setup {
   filetypes = { 'haskell', 'lhaskell', 'cabal' },
 }
+
+-- Python
+lspconfig.pylsp.setup {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { 'W391' },
+          maxLineLength = 100
+        }
+      }
+    }
+  }
+}
