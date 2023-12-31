@@ -1,50 +1,48 @@
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 
 local lsp_defaults = lspconfig.util.default_config
 
-lsp_defaults.capabilities = vim.tbl_deep_extend('force',
-  lsp_defaults.capabilities,
-  require('cmp_nvim_lsp').default_capabilities())
+lsp_defaults.capabilities =
+  vim.tbl_deep_extend("force", lsp_defaults.capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
     -- Enable completion triggered by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wl', function()
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set("n", "<space>wl", function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, opts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<space>f', function()
-      vim.lsp.buf.format { async = true }
+    vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.keymap.set("n", "<space>f", function()
+      vim.lsp.buf.format({ async = true })
     end, opts)
   end,
 })
-
 
 -- local sig_cfg = { }
 -- require('lsp_signature').setup(sig_cfg)
@@ -53,39 +51,38 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- Language configuration
 --------------------------
 
-lspconfig.rust_analyzer.setup {
+lspconfig.rust_analyzer.setup({
   -- Server-specific settings. See `:help lspconfig-setup`
   settings = {
-    ['rust-analyzer'] = {},
+    ["rust-analyzer"] = {},
   },
-}
+})
 
-lspconfig.pylsp.setup {
-}
+lspconfig.pylsp.setup({})
 
-lspconfig.ccls.setup {
+lspconfig.ccls.setup({
   init_options = {
     compilationDatabaseDirectory = ".",
     completion = {
       placeholder = false,
     },
     client = {
-      snippetSupport = false
-    }
-  }
-}
+      snippetSupport = false,
+    },
+  },
+})
 
-lspconfig.typst_lsp.setup {
+lspconfig.typst_lsp.setup({
   settings = {
-    exportPdf = "never"
-  }
-}
+    exportPdf = "never",
+  },
+})
 
 -- lspconfig.csharp_ls.setup{}
 
 -- lspconfig.fsautocomplete.setup{}
 
-lspconfig.omnisharp.setup {
+lspconfig.omnisharp.setup({
   cmd = { "OmniSharp" },
 
   -- Enables support for reading code style, naming convention and analyzer
@@ -122,46 +119,44 @@ lspconfig.omnisharp.setup {
   -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
   -- true
   analyze_open_documents_only = false,
-}
+})
 
-lspconfig.tailwindcss.setup {
-}
+lspconfig.tailwindcss.setup({})
 
-lspconfig.dolmenls.setup {
-}
+lspconfig.dolmenls.setup({})
 
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup({
   on_init = function(client)
     local path = client.workspace_folders[1].name
-    if not vim.loop.fs_stat(path .. '/.luarc.json') and not vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-      client.config.settings = vim.tbl_deep_extend('force', client.config.settings, {
+    if not vim.loop.fs_stat(path .. "/.luarc.json") and not vim.loop.fs_stat(path .. "/.luarc.jsonc") then
+      client.config.settings = vim.tbl_deep_extend("force", client.config.settings, {
         Lua = {
           runtime = {
             -- Tell the language server which version of Lua you're using
             -- (most likely LuaJIT in the case of Neovim)
-            version = 'LuaJIT'
+            version = "LuaJIT",
           },
           -- Make the server aware of Neovim runtime files
           workspace = {
             checkThirdParty = false,
             library = {
-              vim.env.VIMRUNTIME
+              vim.env.VIMRUNTIME,
               -- "${3rd}/luv/library"
               -- "${3rd}/busted/library",
-            }
+            },
             -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
             -- library = vim.api.nvim_get_runtime_file("", true)
-          }
-        }
+          },
+        },
       })
 
       client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
     end
     return true
-  end
-}
+  end,
+})
 
-lspconfig.texlab.setup {
+lspconfig.texlab.setup({
   settings = {
     texlab = {
       auxDirectory = ".",
@@ -170,56 +165,54 @@ lspconfig.texlab.setup {
         args = { "-xelatex", "-interaction=nonstopmode", "-synctex=1", "%f" },
         executable = "latexmk",
         forwardSearchAfter = false,
-        onSave = false
+        onSave = false,
       },
       chktex = {
         onEdit = false,
-        onOpenAndSave = false
+        onOpenAndSave = false,
       },
       diagnosticsDelay = 300,
       formatterLineLength = 80,
       forwardSearch = {
-        args = {}
+        args = {},
       },
       latexFormatter = "latexindent",
       latexindent = {
-        modifyLineBreaks = false
-      }
-    }
-  }
-}
+        modifyLineBreaks = false,
+      },
+    },
+  },
+})
 
--- Lean
-require('lean').setup {
-  lsp = { on_attach = vim.lsp.buf.code_action },
-  mappings = true
-}
+-- -- Lean
+-- require('lean').setup {
+--   lsp = { on_attach = vim.lsp.buf.code_action },
+--   mappings = true
+-- }
 
 -- Dot
-lspconfig.dotls.setup {
-}
+lspconfig.dotls.setup({})
 
 -- Racket
 -- requires: racket-langserver
 -- Install via raco: raco pkg install racket-langserver
-lspconfig.racket_langserver.setup {
-}
+lspconfig.racket_langserver.setup({})
 
 -- Haskell
-lspconfig.hls.setup {
-  filetypes = { 'haskell', 'lhaskell', 'cabal' },
-}
+lspconfig.hls.setup({
+  filetypes = { "haskell", "lhaskell", "cabal" },
+})
 
 -- Python
-lspconfig.pylsp.setup {
+lspconfig.pylsp.setup({
   settings = {
     pylsp = {
       plugins = {
         pycodestyle = {
-          ignore = { 'W391' },
-          maxLineLength = 100
-        }
-      }
-    }
-  }
-}
+          ignore = { "W391" },
+          maxLineLength = 100,
+        },
+      },
+    },
+  },
+})

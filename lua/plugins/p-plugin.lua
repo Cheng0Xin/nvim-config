@@ -1,5 +1,13 @@
 return {
-  "Julian/lean.nvim",
+  {
+    "Julian/lean.nvim",
+    config = function()
+      require("lean").setup({
+        lsp = { on_attach = vim.lsp.buf.code_action },
+        mappings = true,
+      })
+    end,
+  },
   { "kaarmu/typst.vim", ft = { "typst" }, lazy = false },
   {
     "kylechui/nvim-surround",
