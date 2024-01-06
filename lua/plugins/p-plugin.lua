@@ -30,4 +30,10 @@ return {
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
   "hrsh7th/vim-vsnip",
+  {
+    "nmac427/guess-indent.nvim",
+    config = function()
+      require("guess-indent").setup({})
+    end,
+  },
 }

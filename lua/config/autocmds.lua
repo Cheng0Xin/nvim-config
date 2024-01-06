@@ -10,3 +10,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     vim.cmd({ cmd = "set", args = { "wrap" } })
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
