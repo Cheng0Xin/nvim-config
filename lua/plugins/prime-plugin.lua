@@ -36,4 +36,11 @@ return {
       require("guess-indent").setup({})
     end,
   },
+  -- Smooth movement
+  {
+    "gen740/SmoothCursor.nvim",
+    config = function()
+      require("smoothcursor").setup()
+    end,
+  },
 }
