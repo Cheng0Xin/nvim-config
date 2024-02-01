@@ -80,7 +80,7 @@ lspconfig.typst_lsp.setup({
 
 -- lspconfig.csharp_ls.setup{}
 
--- lspconfig.fsautocomplete.setup{}
+lspconfig.fsautocomplete.setup({})
 
 lspconfig.omnisharp.setup({
   cmd = { "OmniSharp" },
