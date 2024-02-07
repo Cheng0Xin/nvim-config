@@ -20,6 +20,10 @@ if vim.g.vscode then
     vscode.action("editor.unfoldAll")
   end)
 
+  kmap.set("n", "zA", function()
+    vscode.action("editor.unfoldRecursively")
+  end)
+
   -- Movement
   -- Left most and right most
   kmap.set({ "n", "v" }, "<C-H>", "<home>")
