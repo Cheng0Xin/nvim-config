@@ -32,11 +32,9 @@ if vim.g.vscode then
   kmap.set("n", "<S-H>", function()
     vscode.action("workbench.action.previousEditorInGroup")
   end)
+
   kmap.set("n", "<S-L>", function()
     vscode.action("workbench.action.nextEditorInGroup")
-  end)
-  kmap.set("n", "=", function()
-    vscode.action("editor.action.smartSelect.expand")
   end)
 
   kmap.set("n", "j", function()
@@ -76,7 +74,7 @@ if vim.g.vscode then
   end)
 
   -- Open
-  kmap.set("n", "<space><space>", function()
+  kmap.set("n", "<space>o", function()
     vscode.action("workbench.action.quickOpen")
   end)
 
