@@ -58,8 +58,6 @@ lspconfig.rust_analyzer.setup({
   },
 })
 
-lspconfig.pylsp.setup({})
-
 lspconfig.ccls.setup({
   init_options = {
     compilationDatabaseDirectory = ".",
@@ -76,6 +74,12 @@ lspconfig.typst_lsp.setup({
   settings = {
     exportPdf = "never",
   },
+  on_attach = function()
+    vim.lsp.buf_request_sync(0, "workspace/executeCommand", {
+      command = "typst-lsp.doPinMain",
+      arguments = { vim.uri_from_fname(vim.fn.getcwd() .. "/main.typ") },
+    }, 10)
+  end,
 })
 
 -- lspconfig.csharp_ls.setup{}
@@ -204,15 +208,15 @@ lspconfig.hls.setup({
 })
 
 -- Python
-lspconfig.pylsp.setup({
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = {
-          ignore = { "W391" },
-          maxLineLength = 100,
-        },
-      },
-    },
-  },
-})
+-- lspconfig.pylsp.setup({
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         pycodestyle = {
+--           ignore = { "W391" },
+--           maxLineLength = 100,
+--         },
+--       },
+--     },
+--   },
+-- })

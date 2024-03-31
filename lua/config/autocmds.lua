@@ -20,3 +20,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "fsharp" },
   command = [[setlocal commentstring=//%s]],
 })
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "racket" },
+  command = [[setlocal commentstring=;;%s]],
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "lean" },
+  command = [[setlocal commentstring=--%s]],
+})
