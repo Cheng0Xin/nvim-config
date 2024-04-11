@@ -12,9 +12,29 @@ map("n", "<leader>z", "<cmd>ZenMode<cr>", { desc = "Zen Mode" })
 map({ "n", "v" }, "<C-H>", "<home>", { desc = "Left most" })
 map({ "n", "v" }, "<C-L>", "<end>", { desc = "Right most" })
 map("n", "<C-w>d", "<cmd>bdelete<cr>", { desc = "Delete current buffer" })
-map("n", "<leader>x", "<cmd>!make<cr>", { desc = "Execute makefile" })
+-- map("n", "<leader>x", "<cmd>!make<cr>", { desc = "Execute makefile" })
+map("n", "<leader>x", ":lua AsyncMake()<CR>", { desc = "Execute makefile" })
 map("n", "<leader>a", "<cmd>AerialToggle!<CR>")
 map("n", "<leader>o", "<cmd>Telescope find_files<CR>")
 map("n", "<leader>s", function()
   vim.opt.spell = not (vim.opt.spell:get())
 end)
+
+function AsyncMake()
+  local cmd = "make" -- Command to run
+  -- Define handlers for job events
+  local on_exit = function(job_id, exit_code, event)
+    if exit_code == 0 then
+      print("Make completed successfully")
+    else
+      print("Make failed with exit code: " .. exit_code)
+    end
+  end
+
+  -- Start the job
+  vim.fn.jobstart(cmd, {
+    on_exit = on_exit,
+    stdout_buffered = true,
+    stderr_buffered = true,
+  })
+end

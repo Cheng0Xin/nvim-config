@@ -75,10 +75,11 @@ lspconfig.typst_lsp.setup({
     exportPdf = "never",
   },
   on_attach = function()
+    print(vim.fn.getcwd())
     vim.lsp.buf_request_sync(0, "workspace/executeCommand", {
       command = "typst-lsp.doPinMain",
       arguments = { vim.uri_from_fname(vim.fn.getcwd() .. "/main.typ") },
-    }, 10)
+    }, 1000)
   end,
 })
 
@@ -208,15 +209,15 @@ lspconfig.hls.setup({
 })
 
 -- Python
--- lspconfig.pylsp.setup({
---   settings = {
---     pylsp = {
---       plugins = {
---         pycodestyle = {
---           ignore = { "W391" },
---           maxLineLength = 100,
---         },
---       },
---     },
---   },
--- })
+lspconfig.pylsp.setup({
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = {
+          ignore = { "W391" },
+          maxLineLength = 100,
+        },
+      },
+    },
+  },
+})
