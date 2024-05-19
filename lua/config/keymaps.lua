@@ -1,5 +1,6 @@
 local Util = require("lazyvim.util")
 local map = Util.safe_keymap_set
+local unmap = vim.keymap.del
 
 map("i", "jk", "<esc>", { desc = "Better esc" })
 map("i", "jj", "<esc>", { desc = "Better esc" })
@@ -19,6 +20,7 @@ map("n", "<leader>o", "<cmd>Telescope find_files<CR>")
 map("n", "<leader>s", function()
   vim.opt.spell = not (vim.opt.spell:get())
 end)
+unmap("i", "<tab>")
 
 function AsyncMake()
   local cmd = "make" -- Command to run
