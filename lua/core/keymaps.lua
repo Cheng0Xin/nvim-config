@@ -1,0 +1,22 @@
+-- Basic
+vim.keymap.set({ "n", "v" }, "<C-h>", "0")
+vim.keymap.set({ "n", "v" }, "<C-l>", "$")
+vim.keymap.set("n", "<S-h>", "<cmd>:bprevious<cr>")
+vim.keymap.set("n", "<S-l>", "<cmd>:bnext<cr>")
+vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+vim.keymap.set({ "n", "v" }, "mm", "%", { desc = "Jump between parens" })
+vim.keymap.set("n", "Y", "yy", { desc = "Yank whole line" })
+vim.keymap.set("n", "ss", "<cmd>:w<cr>", { desc = "Save" })
+vim.keymap.set("n", "<C-x><C-s>", "<cmd>:w<cr>", { desc = "Save" })
+
+-- For `Agda`
+vim.keymap.set("n", "<leader>l", function()
+	vim.cmd("CornelisLoad")
+	vim.cmd("CornelisQuestionToMeta")
+end, { desc = "Load source and expand ?" })
+vim.keymap.set("n", "<leader>c", "<cmd>CornelisMakeCase<cr>", { desc = "Make case" })
+vim.keymap.set("n", "<leader>n", "<cmd>CornelisNextGoal<cr>", { desc = "Sel next goal" })
+vim.keymap.set("n", "<leader>p", "<cmd>CornelisPrevGoal<cr>", { desc = "Sel pre goal" })
+vim.keymap.set("n", "<leader>i", "<cmd>CornelisTypeContextInfer<cr>", { desc = "Show type" })
+vim.keymap.set("n", "<leader>a", "<cmd>CornelisAuto<cr>", { desc = "Auto" })
+vim.keymap.set("n", "<leader>d", "<cmd>CornelisTypeInfer<cr>", { desc = "Infer given type" })
