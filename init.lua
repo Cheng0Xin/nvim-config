@@ -5,6 +5,9 @@ vim.opt.relativenumber = true
 vim.opt.showmode = false
 vim.opt.spelllang = { "en_us", "cjk" }
 vim.opt.spell = true
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
 
 -- Leader
 vim.g.mapleader = ","
