@@ -70,10 +70,18 @@ vim.lsp.config("lua_ls", {
 
 -- Formatting setup
 require("conform").setup({
-	default_format_opts = { lsp_format = "fallback" },
+	default_format_opts = { lsp_format = "fallback", timeout_ms = 20000 },
 	formatters_by_ft = {
 		lua = { "stylua" },
 		scala = { "scalafmt" },
+	},
+	formatters = {
+		scalafmt = {
+			command = "scalafmt",
+			args = { "--stdin", "--stdout" },
+			stdin = true,
+			timeout_ms = 20000,
+		},
 	},
 })
 
