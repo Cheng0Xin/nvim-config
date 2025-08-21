@@ -3,11 +3,14 @@ vim.opt.hlsearch = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = false
-vim.opt.spelllang = { "en_us", "cjk" }
-vim.opt.spell = true
+-- vim.opt.spelllang = { "en_us", "cjk" }
+-- vim.opt.spell = true
 vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.breakindent = true
+vim.opt.linebreak = true -- break at word boundaries
+vim.opt.breakindent = true -- preserve indent
+vim.opt.textwidth = 0 -- disable auto line breaks
+vim.opt.showbreak = "↳ " -- prefix for wrapped screen lines
+vim.opt.breakindentopt = "shift:2,min:40,sbr"
 
 -- Leader
 vim.g.mapleader = ","
@@ -53,8 +56,17 @@ vim.opt.splitbelow = true
 
 -- LSP
 vim.lsp.inlay_hint.enable(true)
+vim.print(vim.fn.stdpath("config"))
 
 -- Bootstrap core
 require("core.lazy")
 require("core.keymaps")
 require("center")
+
+vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter", "FileType" }, {
+	callback = function()
+		vim.wo.wrap = true
+		vim.wo.linebreak = true
+		vim.wo.breakindent = true
+	end,
+})
