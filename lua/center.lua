@@ -197,6 +197,7 @@ require("lazy").setup({
 			-- set({ "n", "x" }, "<leader>S", function()
 			-- 	mc.matchSkipCursor(-1)
 			-- end)
+			set("x", "s", mc.matchCursors)
 
 			-- Add and remove cursors with control + left click.
 			set("n", "<c-leftmouse>", mc.handleMouse)

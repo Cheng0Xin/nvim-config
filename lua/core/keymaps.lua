@@ -9,6 +9,11 @@ vim.keymap.set({ "n", "v" }, "mm", "%", { desc = "Jump between parens" })
 vim.keymap.set("n", "Y", "yy", { desc = "Yank whole line" })
 vim.keymap.set("n", "ss", "<cmd>:w<cr>", { desc = "Save" })
 vim.keymap.set("n", "<C-x><C-s>", "<cmd>:w<cr>", { desc = "Save" })
+vim.keymap.set("n", "<leader>q", "<cmd>:bd<cr>", { desc = "Close buffer" })
+-- vim.keymap.set("v", "s", function()
+-- 	local w = vim.fn.input("Word: ")
+-- 	vim.notify("Hello World!")
+-- end)
 
 -- For `Agda`
 local function agda_filetype()
