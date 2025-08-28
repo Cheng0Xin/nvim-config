@@ -10,6 +10,8 @@ vim.keymap.set("n", "Y", "yy", { desc = "Yank whole line" })
 vim.keymap.set("n", "ss", "<cmd>:w<cr>", { desc = "Save" })
 vim.keymap.set("n", "<C-x><C-s>", "<cmd>:w<cr>", { desc = "Save" })
 vim.keymap.set("n", "<leader>q", "<cmd>:bd<cr>", { desc = "Close buffer" })
+vim.keymap.set("v", "<", "<gv", { desc = "Indent left <" })
+vim.keymap.set("v", ">", ">gv", { desc = "Indent left >" })
 -- vim.keymap.set("v", "s", function()
 -- 	local w = vim.fn.input("Word: ")
 -- 	vim.notify("Hello World!")
@@ -18,6 +20,7 @@ vim.keymap.set("n", "<leader>q", "<cmd>:bd<cr>", { desc = "Close buffer" })
 -- For `Agda`
 local function agda_filetype()
 	local opts = { buffer = true, noremap = true, silent = true }
+	vim.g.cornelis_no_agda_input = 1
 
 	vim.keymap.set("n", "<leader>l", function()
 		vim.cmd("CornelisLoad")
@@ -36,6 +39,7 @@ local function agda_filetype()
 	-- vim.keymap.set("n", "<leader>,", ":CornelisTypeContext<CR>", opts)
 	-- -- vim.keymap.set("n", "<C-A>", ":CornelisInc<CR>", opts)
 	-- vim.keymap.set("n", "<C-X>", ":CornelisDec<CR>", opts)
+	vim.keymap.set("n", "<leader>u", "<cmd>CornelisInputSymbol<CR>", { buffer = true })
 end
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
