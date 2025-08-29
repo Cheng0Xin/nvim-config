@@ -135,9 +135,9 @@ require("lazy").setup({
 			appearance = {
 				nerd_font_variant = "mono",
 			},
-			completion = { documentation = { auto_show = false } },
+			completion = { documentation = { auto_show = true } },
 			sources = {
-				default = { "agda_symbols", "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "path", "snippets", "buffer", "agda_symbols" },
 				providers = {
 					agda_symbols = {
 						name = "agda_symbols",
@@ -179,7 +179,7 @@ require("lazy").setup({
 			set({ "x" }, "<c-v>", function()
 				mc.lineAddCursor(1)
 			end)
-			set("x", "s", mc.matchCursors)
+			set("x", "m", mc.matchCursors)
 
 			-- Add and remove cursors with control + left click.
 			set("n", "<c-leftmouse>", mc.handleMouse)
