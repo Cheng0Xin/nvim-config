@@ -62,6 +62,9 @@ vim.print(vim.fn.stdpath("config"))
 require("core.lazy")
 require("core.keymaps")
 require("center")
+require("themedetect")
+
+switch_theme()
 
 vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter", "FileType" }, {
 	callback = function()

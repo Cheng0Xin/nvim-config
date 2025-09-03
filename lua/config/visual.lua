@@ -2,8 +2,6 @@ require("lualine").setup() -- the status line
 require("nvim-tree").setup() -- the tree file browser panel
 require("telescope").setup() -- command menu
 
-vim.cmd.colorscheme("evangelion")
-
 require("noice").setup({
 	lsp = {
 		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
