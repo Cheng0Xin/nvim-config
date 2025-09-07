@@ -17,6 +17,15 @@ vim.lsp.enable("agda_ls")
 vim.lsp.enable("metals")
 vim.lsp.enable("racket_langserver")
 
+-- Show diagnostics as virtual text, signs, and underlines
+vim.diagnostic.config({
+	virtual_text = true, -- inline text
+	signs = true, -- gutter signs
+	underline = true, -- highlight under text
+	update_in_insert = false, -- don't update while typing
+	severity_sort = true, -- sort by severity
+})
+
 -- Lua language configuration for neovim only
 vim.lsp.config("lua_ls", {
 	on_init = function(client)
@@ -57,6 +66,7 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		scala = { "scalafmt" },
+		python = { "isort", "black" },
 	},
 	formatters = {
 		scalafmt = {
