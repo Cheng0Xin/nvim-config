@@ -4,6 +4,7 @@
     "words": [
         "fastspell", "nvim",
         "infixl", "Zermelo-Fraenkel",
-        "intuitionistic", "extensionality"
+        "intuitionistic", "extensionality",
+        "nullary"
     ]
 }
