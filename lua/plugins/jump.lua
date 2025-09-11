@@ -1,5 +1,5 @@
 return {
-  {
+	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
 		opts = {},
@@ -29,5 +29,5 @@ return {
 				desc = "Toggle Flash Search",
 			},
 		},
-	}
+	},
 }
