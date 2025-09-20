@@ -24,6 +24,13 @@ return {
 				vim.keymap.set("n", "<leader>\\", ":LeanAbbreviationsReverseLookup<CR>", opts)
 			end
 
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "lean",
+				callback = function()
+					vim.bo.commentstring = "-- %s"
+				end,
+			})
+
 			vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 				pattern = "*.lean",
 				callback = lean_filetype,
