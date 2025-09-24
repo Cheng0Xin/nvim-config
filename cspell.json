@@ -5,6 +5,6 @@
         "fastspell", "nvim",
         "infixl", "Zermelo-Fraenkel",
         "intuitionistic", "extensionality",
-        "nullary"
+        "nullary", "homotopy", "parat"
     ]
 }
