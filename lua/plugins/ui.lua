@@ -17,6 +17,8 @@ return {
 						vim.cmd.colorscheme("kanagawa-lotus")
 						vim.o.background = "light"
 					end
+				else
+					vim.cmd.colorscheme("kanagawa-lotus")
 				end
 			end
 			switch_theme()
