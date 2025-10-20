@@ -21,13 +21,13 @@ vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.sidescrolloff = 8
 vim.opt.scrolloff = 8
--- Make Normal and related highlight groups transparent
-vim.api.nvim_create_autocmd("ColorScheme", {
-	callback = function()
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-	end,
-})
+-- -- Make Normal and related highlight groups transparent
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+-- 	callback = function()
+-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+-- 	end,
+-- })
 
 -- Leader
 vim.g.mapleader = ","
