@@ -83,12 +83,19 @@ return {
 					lua = { "stylua" },
 					scala = { "scalafmt" },
 					python = { "isort", "black" },
+					xml = { "xmllint" },
 				},
 				formatters = {
 					scalafmt = {
 						command = "scalafmt",
 						args = { "--stdin", "--stdout" },
 						stdin = true,
+						timeout_ms = 20000,
+					},
+					xmllint = {
+						command = "xmllint",
+						args = { "--format", "-" }, -- <- read from stdin via "-"
+						stdin = true, -- conform reads output from stdout
 						timeout_ms = 20000,
 					},
 				},
