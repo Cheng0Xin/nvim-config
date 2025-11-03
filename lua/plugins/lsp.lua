@@ -31,7 +31,9 @@ return {
 
 			-- Show diagnostics as virtual text, signs, and underlines
 			vim.diagnostic.config({
-				virtual_text = true, -- inline text
+				-- virtual_text = { wrap = true, spacing = 2, prefix = "●" }, -- inline text
+				virtual_lines = { current_line = true },
+				virtual_text = false,
 				signs = true, -- gutter signs
 				underline = true, -- highlight under text
 				update_in_insert = false, -- don't update while typing
