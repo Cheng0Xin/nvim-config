@@ -7,6 +7,6 @@
         "intuitionistic", "extensionality",
         "nullary", "homotopy", "parat", "eval",
         "reqwest", "dataspace", "foldr", "foldl",
-        "Semigroup", "fmap", "mempty"
+        "semigroup", "fmap", "mempty", "typst"
     ]
 }
