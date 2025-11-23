@@ -59,6 +59,13 @@ return {
 					lsp_doc_border = false,
 				},
 			})
+			vim.keymap.set("n", "<leader>nh", function()
+				require("noice").cmd("history")
+			end)
+
+			vim.keymap.set("n", "<leader>nc", function()
+				require("noice").cmd("dismiss")
+			end)
 		end,
 	},
 }
