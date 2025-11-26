@@ -10,11 +10,11 @@ return {
 				if sysname == "Darwin" then
 					local apple_interface_style = vim.fn.system({ "defaults", "read", "-g", "AppleInterfaceStyle" })
 					if apple_interface_style:gsub("%s+", "") == "Dark" then
-						vim.cmd.colorscheme("kanagawa-dragon")
+						vim.cmd.colorscheme("cyberdream")
 						vim.o.background = "dark"
 					else
 						vim.print("Light")
-						vim.cmd.colorscheme("kanagawa-lotus")
+						vim.cmd.colorscheme("cyberdream-light")
 						vim.o.background = "light"
 					end
 				else
