@@ -16,6 +16,13 @@ return {
 						vim.print("Light")
 						vim.cmd.colorscheme("cyberdream-light")
 						vim.o.background = "light"
+
+						vim.api.nvim_set_hl(0, "iCursor", { fg = "white", bg = "#e5e5e5" }) -- Using a hex color for steelblue
+
+						vim.cmd([[
+              highlight CursorLine cterm=NONE ctermbg=DarkGray guibg=#e5e5e5
+              highlight CursorColumn cterm=NONE guibg=#e5e5e5
+						]])
 					end
 				else
 					vim.cmd.colorscheme("kanagawa-lotus")

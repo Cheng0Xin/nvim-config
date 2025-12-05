@@ -19,14 +19,18 @@ return {
 					"tinymist",
 				},
 			})
-			vim.lsp.config("hls", {
-				filetypes = { "haskell", "lhaskell", "cabal" },
-			})
 			vim.lsp.enable("hls")
-			vim.lsp.enable("agda_ls")
+			vim.lsp.config("hls", {
+				filetypes = { "haskell", "lhaskell" },
+			})
+			-- vim.lsp.enable("agda_ls")
 			vim.lsp.enable("metals")
 			vim.lsp.enable("racket_langserver")
-			vim.lsp.enable("terraform_lsp")
+			-- vim.lsp.enable("terraform_lsp")
+			vim.lsp.enable("ts_ls")
+			vim.lsp.config("ts_ls", {
+				filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+			})
 			vim.lsp.inlay_hint.enable(true)
 
 			-- Show diagnostics as virtual text, signs, and underlines
