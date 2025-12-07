@@ -25,7 +25,7 @@ return {
 						]])
 					end
 				else
-					vim.cmd.colorscheme("kanagawa-lotus")
+					vim.cmd.colorscheme("cyberdream")
 				end
 			end
 			switch_theme()
