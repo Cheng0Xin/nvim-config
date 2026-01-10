@@ -4,16 +4,20 @@ return {
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 
-		diagnostics_indicator = function(count, level, diagnostics_dict, context)
-			local icon = level:match("error") and " " or " "
-			return " " .. icon .. count
-		end,
-
 		config = function()
 			vim.opt.termguicolors = true
 			local bfline = require("bufferline")
 
-			bfline.setup({})
+			bfline.setup({
+				options = {
+					diagnostics_indicator = function(count, level, diagnostics_dict, context)
+						local icon = level:match("error") and " " or " "
+						return " " .. icon .. count
+					end,
+					modified_icon = "● ",
+					buffer_close_icon = "✗",
+				},
+			})
 
 			vim.keymap.set("n", "<S-h>", "<cmd>:BufferLineCyclePrev<cr>")
 			vim.keymap.set("n", "<S-l>", "<cmd>:BufferLineCycleNext<cr>")
