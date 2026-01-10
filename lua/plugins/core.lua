@@ -9,7 +9,7 @@ return {
 			require("mini.pairs").setup()
 			require("mini.surround").setup()
 			require("mini.indentscope").setup()
-			require("mini.tabline").setup()
+			-- require("mini.tabline").setup()
 			require("mini.trailspace").setup()
 			require("mini.comment").setup()
 

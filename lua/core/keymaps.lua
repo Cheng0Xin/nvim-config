@@ -2,8 +2,6 @@
 vim.keymap.set({ "n", "v" }, "<C-h>", "0")
 vim.keymap.set({ "n", "v" }, "<C-l>", "$")
 vim.keymap.set("v", "R", "p")
-vim.keymap.set("n", "<S-h>", "<cmd>:bprevious<cr>")
-vim.keymap.set("n", "<S-l>", "<cmd>:bnext<cr>")
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode" })
 vim.keymap.set({ "n", "v" }, "mm", "%", { desc = "Jump between parens" })
 vim.keymap.set("n", "Y", "yy", { desc = "Yank whole line" })
