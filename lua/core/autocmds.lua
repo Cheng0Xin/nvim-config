@@ -13,3 +13,10 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 	pattern = "*",
 	command = 'silent! normal! g`"zv',
 })
+
+-- Folding code blocks at the beginning
+vim.api.nvim_create_autocmd("BufReadPost", {
+	callback = function()
+		vim.cmd("normal! zM")
+	end,
+})
