@@ -115,11 +115,12 @@ return {
 		end,
 	},
 	-- Complete
+	{ "onsails/lspkind.nvim" },
 	{
 		"saghen/blink.cmp",
-		-- dependencies = {
-		-- 	"4e554c4c/blink-cmp-agda-symbols",
-		-- },
+		dependencies = {
+			"onsails/lspkind.nvim",
+		},
 		version = "1.*",
 		opts = {
 			keymap = { preset = "super-tab" },
@@ -127,7 +128,20 @@ return {
 			appearance = {
 				nerd_font_variant = "mono",
 			},
-			completion = { documentation = { auto_show = true } },
+			-- completion = { documentation = { auto_show = true } },
+			completion = {
+				menu = {
+					draw = {
+						components = {
+							kind_icon = {
+								text = function(ctx)
+									return require("lspkind").symbol_map[ctx.kind] or ""
+								end,
+							},
+						},
+					},
+				},
+			},
 			-- sources = {
 			-- 	default = { "lsp", "path", "snippets", "buffer", "agda_symbols" },
 			-- 	providers = {
