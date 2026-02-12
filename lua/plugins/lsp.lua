@@ -17,12 +17,22 @@ return {
 					"pyright",
 					"rust_analyzer",
 					"tinymist",
+					"cssls",
 				},
 			})
 			vim.lsp.enable("hls")
 			vim.lsp.config("hls", {
 				filetypes = { "haskell", "lhaskell" },
 			})
+			-- For CSS
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+			vim.lsp.config("cssls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.enable("cssls")
+
 			-- vim.lsp.enable("agda_ls")
 			vim.lsp.enable("metals")
 			vim.lsp.enable("racket_langserver")
