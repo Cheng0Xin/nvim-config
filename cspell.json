@@ -6,6 +6,7 @@
         "extensionality", "nullary", "homotopy", "parat", "eval",
         "reqwest", "dataspace", "foldr", "foldl", "semigroup", "fmap",
         "mempty", "typst", "xmake", "morphism", "morphisms", "compositionality",
-        "forall", "deque", "subtyping", "hspec", "metavariable", "metatheory", "iszero", "succ", "emptyset"
+        "forall", "deque", "subtyping", "hspec", "metavariable", "metatheory",
+        "iszero", "succ", "emptyset", "derivability"
     ]
 }
