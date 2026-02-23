@@ -37,10 +37,11 @@ return {
 			vim.lsp.enable("metals")
 			vim.lsp.enable("racket_langserver")
 			-- vim.lsp.enable("terraform_lsp")
-			vim.lsp.enable("ts_ls")
 			vim.lsp.config("ts_ls", {
+				capabilities = require("blink.cmp").get_lsp_capabilities(),
 				filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
 			})
+			vim.lsp.enable("ts_ls")
 			vim.lsp.inlay_hint.enable(true)
 
 			-- Show diagnostics as virtual text, signs, and underlines
@@ -145,8 +146,14 @@ return {
 						columns = {
 							{ "kind_icon" },
 							{ "label", "label_description", gap = 1 },
+							{ "lsp_detail", gap = 1 },
 						},
 						components = {
+							lsp_detail = {
+								text = function(ctx)
+									return (ctx.item and ctx.item.detail) or ""
+								end,
+							},
 							kind_icon = {
 								text = function(ctx)
 									return require("lspkind").symbol_map[ctx.kind] or ""
