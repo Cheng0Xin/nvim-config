@@ -151,7 +151,13 @@ return {
 						components = {
 							lsp_detail = {
 								text = function(ctx)
-									return (ctx.item and ctx.item.detail) or ""
+									local s = ctx.item or "" -- (ctx.item and ctx.item.detail) or ""
+									if type(s) ~= "string" then
+										return ""
+									end
+									-- s = s:gsub("[\r\n]+", "") -- remove newlines
+									-- s = s:gsub("%s%s+", "") -- collapse whitespace
+									return s
 								end,
 							},
 							kind_icon = {
@@ -163,23 +169,6 @@ return {
 					},
 				},
 			},
-			-- sources = {
-			-- 	default = { "lsp", "path", "snippets", "buffer", "agda_symbols" },
-			-- 	providers = {
-			-- 		agda_symbols = {
-			-- 			name = "agda_symbols",
-			-- 			module = "blink-agda-symbols",
-			-- 			opts = {
-			-- 				extra = {
-			-- 					to = "→",
-			-- 					lambda = "λ",
-			-- 					eq = { "≡", "≐", "≃", "↔" },
-			-- 					po = { "≲", "↩" },
-			-- 				},
-			-- 			},
-			-- 		},
-			-- 	},
-			-- },
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 		},
 		opts_extend = { "sources.default" },
