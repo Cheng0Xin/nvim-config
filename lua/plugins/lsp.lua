@@ -151,12 +151,18 @@ return {
 						components = {
 							lsp_detail = {
 								text = function(ctx)
-									local s = ctx.item or "" -- (ctx.item and ctx.item.detail) or ""
+									local s = (ctx.item and ctx.item.detail) or "" -- (ctx.item and ctx.item.detail) or ""
 									if type(s) ~= "string" then
 										return ""
 									end
-									-- s = s:gsub("[\r\n]+", "") -- remove newlines
-									-- s = s:gsub("%s%s+", "") -- collapse whitespace
+									s = s:gsub("[\r\n]+", "") -- remove newlines
+									s = s:gsub("%s%s+", "") -- collapse whitespace
+
+									local max_len = 40
+									if #s > max_len then
+										s = s:sub(1, max_len)
+									end
+
 									return s
 								end,
 							},
