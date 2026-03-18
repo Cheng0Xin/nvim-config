@@ -7,6 +7,7 @@
         "reqwest", "dataspace", "foldr", "foldl", "semigroup", "fmap",
         "mempty", "typst", "xmake", "morphism", "morphisms", "compositionality",
         "forall", "deque", "subtyping", "hspec", "metavariable", "metatheory",
-        "iszero", "succ", "emptyset", "derivability", "subterm"
+        "iszero", "succ", "emptyset", "derivability", "subterm",
+        "combinators", "redex", "redexes", "conservativity"
     ]
 }
