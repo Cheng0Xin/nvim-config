@@ -7,7 +7,9 @@ return {
 		version = "*",
 		config = function()
 			require("mini.pairs").setup()
-			require("mini.surround").setup()
+			require("mini.surround").setup({
+				silent = true,
+			})
 			require("mini.indentscope").setup()
 			-- require("mini.tabline").setup()
 			require("mini.trailspace").setup()

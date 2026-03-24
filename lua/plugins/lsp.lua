@@ -18,8 +18,10 @@ return {
 					"rust_analyzer",
 					"tinymist",
 					"cssls",
+					"zls",
 				},
 			})
+			-- For Haskell
 			vim.lsp.enable("hls")
 			vim.lsp.config("hls", {
 				filetypes = { "haskell", "lhaskell" },
@@ -33,6 +35,12 @@ return {
 			})
 			vim.lsp.enable("cssls")
 
+			-- For Zig
+			vim.lsp.enable("zls")
+			vim.lsp.config("zls", {
+				filetypes = { "zig", "zir" },
+				single_file_support = true,
+			})
 			-- vim.lsp.enable("agda_ls")
 			vim.lsp.enable("metals")
 			vim.lsp.enable("racket_langserver")
@@ -101,6 +109,7 @@ return {
 					scala = { "scalafmt" },
 					python = { "isort", "black" },
 					xml = { "xmllint" },
+					haskell = { "ormolu" },
 				},
 				formatters = {
 					scalafmt = {

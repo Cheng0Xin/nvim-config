@@ -27,6 +27,7 @@ return {
 					"scala",
 					"typst",
 					"lean",
+					"zig",
 				},
 				sync_install = false,
 				auto_install = true,
