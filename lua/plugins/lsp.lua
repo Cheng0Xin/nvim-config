@@ -20,6 +20,9 @@ return {
 					"cssls",
 					"zls",
 				},
+				automatic_enable = {
+					exclude = { "stylua" },
+				},
 			})
 			-- For Haskell
 			vim.lsp.enable("hls")

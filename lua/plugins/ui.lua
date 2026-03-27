@@ -25,7 +25,7 @@ return {
 						]])
 					end
 				else
-					vim.cmd.colorscheme("cyberdream-light")
+					vim.cmd.colorscheme("cyberdream")
 				end
 			end
 			switch_theme()
