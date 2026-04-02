@@ -1,14 +1,52 @@
 {
-    "version": "0.2",
-    "language": "en",
-    "words": [
-        "fastspell", "nvim", "infixl", "Zermelo-Fraenkel", "intuitionistic",
-        "extensionality", "nullary", "homotopy", "parat", "eval",
-        "reqwest", "dataspace", "foldr", "foldl", "semigroup", "fmap",
-        "mempty", "typst", "xmake", "morphism", "morphisms", "compositionality",
-        "forall", "deque", "subtyping", "hspec", "metavariable", "metatheory",
-        "iszero", "succ", "emptyset", "derivability", "subterm",
-        "combinators", "redex", "redexes", "conservativity", "controlplane",
-        "monoid"
-    ]
+  "version": "0.2",
+  "language": "en",
+  "dictionaryDefinitions": [
+    {
+      "name": "english",
+      "path": "./dict/english-words.txt"
+    },
+    {
+      "name": "cs-math",
+      "path": "./dict/cs-math-words.txt"
+    },
+    {
+      "name": "haskell",
+      "path": "./dict/haskell-words.txt"
+    },
+    {
+      "name": "rust",
+      "path": "./dict/rust-words.txt"
+    }
+  ],
+  "dictionaries": [
+    "english", "cs-math"
+  ],
+  "languageSettings": [
+    {
+      "languageId": "rust",
+      "dictionaries": [
+        "english",
+        "cs-math",
+        "rust"
+      ]
+    },
+    {
+      "languageId": "haskell",
+      "dictionaries": [
+        "english",
+        "cs-math",
+        "haskell"
+      ]
+    },
+    {
+      "languageId": "typst",
+      "dictionaries": [
+        "english",
+        "cs-math",
+        "haskell",
+        "rust"
+      ]
+    }
+  ]
 }

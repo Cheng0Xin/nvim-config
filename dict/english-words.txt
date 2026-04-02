@@ -1,0 +1,11 @@
+derivability
+combinators
+intuitionistic
+extensionality
+nullary
+homotopy
+dataspace
+morphism
+morphisms
+compositionality
+conservativity

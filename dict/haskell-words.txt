@@ -1,0 +1,6 @@
+foldr
+foldl
+fmap
+mempty
+forall
+hspec
