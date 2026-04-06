@@ -4,3 +4,4 @@ fmap
 mempty
 forall
 hspec
+exitcode

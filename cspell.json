@@ -40,6 +40,14 @@
       ]
     },
     {
+      "languageId": "cabal",
+      "dictionaries": [
+        "english",
+        "cs-math",
+        "haskell"
+      ]
+    },
+    {
       "languageId": "typst",
       "dictionaries": [
         "english",
