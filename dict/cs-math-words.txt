@@ -19,3 +19,4 @@ infixl
 parat
 xmake
 deque
+Kleisli

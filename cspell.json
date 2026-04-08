@@ -1,3 +1,4 @@
+
 {
   "version": "0.2",
   "language": "en",
@@ -15,12 +16,17 @@
       "path": "./dict/haskell-words.txt"
     },
     {
+      "name": "lean",
+      "path": "./dict/lean-words.txt"
+    },
+    {
       "name": "rust",
       "path": "./dict/rust-words.txt"
     }
   ],
   "dictionaries": [
-    "english", "cs-math"
+    "english",
+    "cs-math"
   ],
   "languageSettings": [
     {
@@ -37,6 +43,14 @@
         "english",
         "cs-math",
         "haskell"
+      ]
+    },
+    {
+      "languageId": "lean",
+      "dictionaries": [
+        "english",
+        "cs-math",
+        "lean"
       ]
     },
     {
