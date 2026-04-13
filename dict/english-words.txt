@@ -9,3 +9,4 @@ morphism
 morphisms
 compositionality
 conservativity
+satisfiability
