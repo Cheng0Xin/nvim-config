@@ -5,3 +5,4 @@ mempty
 forall
 hspec
 exitcode
+newtype
