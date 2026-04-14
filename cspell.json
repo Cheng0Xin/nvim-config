@@ -22,6 +22,10 @@
     {
       "name": "rust",
       "path": "./dict/rust-words.txt"
+    },
+    {
+      "name": "tex",
+      "path": "./dict/tex-words.txt"
     }
   ],
   "dictionaries": [
@@ -68,6 +72,14 @@
         "cs-math",
         "haskell",
         "rust"
+      ]
+    },
+    {
+      "languageId": "tex",
+      "dictionaries": [
+        "english",
+        "cs-math",
+        "tex"
       ]
     }
   ]

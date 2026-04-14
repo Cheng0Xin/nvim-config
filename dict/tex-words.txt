@@ -1,0 +1,11 @@
+usepackage
+documentclass
+setlength
+maketitle
+footnotesize
+textsuperscript
+textit
+textbf
+texttt
+minipage
+textwidth
