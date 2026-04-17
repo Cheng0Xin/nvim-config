@@ -15,6 +15,16 @@ return {
 				filetype = "lean", -- set the Neovim filetype this parser applies to
 			}
 
+			parser_config.move = {
+				install_info = {
+					url = "https://github.com/MystenLabs/sui", -- the grammar repo
+					location = "external-crates/move/tooling/tree-sitter",
+					files = { "src/parser.c" }, -- important: both if scanner exists
+					branch = "main", -- or the default branch
+				},
+				filetype = "move", -- set the Neovim filetype this parser applies to
+			}
+
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
 					"agda",
@@ -28,6 +38,7 @@ return {
 					"typst",
 					"lean",
 					"zig",
+					"move",
 				},
 				sync_install = false,
 				auto_install = true,
