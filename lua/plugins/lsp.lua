@@ -35,6 +35,10 @@ return {
 				severity_sort = true, -- sort by severity
 			})
 
+			vim.keymap.set("n", "<leader>d", function()
+				vim.diagnostic.open_float(nil, { focus = false })
+			end)
+
 			-- For Haskell
 			vim.lsp.enable("hls")
 			vim.lsp.config("hls", {
