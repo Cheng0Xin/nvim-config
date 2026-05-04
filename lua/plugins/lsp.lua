@@ -24,6 +24,17 @@ return {
 					exclude = { "stylua" },
 				},
 			})
+			-- Show diagnostics as virtual text, signs, and underlines
+			vim.diagnostic.config({
+				-- virtual_lines = { current_line = true },
+				-- virtual_text = false,
+				virtual_text = { wrap = true, spacing = 2, prefix = "●" }, -- inline text
+				signs = true, -- gutter signs
+				underline = true, -- highlight under text
+				update_in_insert = false, -- don't update while typing
+				severity_sort = true, -- sort by severity
+			})
+
 			-- For Haskell
 			vim.lsp.enable("hls")
 			vim.lsp.config("hls", {
@@ -33,11 +44,16 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+			vim.lsp.enable("cssls")
 			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 			})
-			vim.lsp.enable("cssls")
 
+			-- For Python
+			vim.lsp.enable("pyright")
+			vim.lsp.config("pyright", {
+				capabilities = capabilities,
+			})
 			-- For Zig
 			vim.lsp.enable("zls")
 			vim.lsp.config("zls", {
@@ -54,17 +70,6 @@ return {
 			})
 			vim.lsp.enable("ts_ls")
 			vim.lsp.inlay_hint.enable(true)
-
-			-- Show diagnostics as virtual text, signs, and underlines
-			vim.diagnostic.config({
-				-- virtual_text = { wrap = true, spacing = 2, prefix = "●" }, -- inline text
-				virtual_lines = { current_line = true },
-				virtual_text = false,
-				signs = true, -- gutter signs
-				underline = true, -- highlight under text
-				update_in_insert = false, -- don't update while typing
-				severity_sort = true, -- sort by severity
-			})
 
 			-- Lua language configuration for neovim only
 			vim.lsp.config("lua_ls", {
