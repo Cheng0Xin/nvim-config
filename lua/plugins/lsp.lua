@@ -71,6 +71,7 @@ return {
 			vim.lsp.config("ts_ls", {
 				capabilities = require("blink.cmp").get_lsp_capabilities(),
 				filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+				single_file_support = true,
 			})
 			vim.lsp.enable("ts_ls")
 			vim.lsp.inlay_hint.enable(true)
