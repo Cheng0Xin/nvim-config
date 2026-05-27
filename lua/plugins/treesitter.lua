@@ -3,57 +3,80 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function()
-			-- somewhere after requiring nvim-treesitter
-			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+			local ts = require("nvim-treesitter")
+
+			ts.setup({
+				install_dir = vim.fn.stdpath("data") .. "/site",
+			})
+
+			local parser_config = require("nvim-treesitter.parsers")
 
 			parser_config.lean = {
 				install_info = {
-					url = "https://github.com/Julian/tree-sitter-lean", -- the grammar repo
-					files = { "src/parser.c", "src/scanner.c" }, -- important: both if scanner exists
-					branch = "main", -- or the default branch
+					url = "https://github.com/Julian/tree-sitter-lean",
+					files = { "src/parser.c", "src/scanner.c" },
+					branch = "main",
 				},
-				filetype = "lean", -- set the Neovim filetype this parser applies to
+				filetype = "lean",
 			}
 
 			parser_config.move = {
 				install_info = {
-					url = "https://github.com/MystenLabs/sui", -- the grammar repo
+					url = "https://github.com/MystenLabs/sui",
 					location = "external-crates/move/tooling/tree-sitter",
-					files = { "src/parser.c" }, -- important: both if scanner exists
-					branch = "main", -- or the default branch
+					files = { "src/parser.c" },
+					branch = "main",
 				},
-				filetype = "move", -- set the Neovim filetype this parser applies to
+				filetype = "move",
 			}
 
-			require("nvim-treesitter.configs").setup({
-				ensure_installed = {
-					"agda",
+			ts.install({
+				"cpp",
+				"haskell",
+				"latex",
+				"python",
+				"racket",
+				"rust",
+				"scala",
+				"typst",
+			})
+
+			-- enable highlighting
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = {
 					"cpp",
 					"haskell",
-					"latex",
+					"tex",
 					"python",
 					"racket",
 					"rust",
 					"scala",
 					"typst",
-					"lean",
-					"zig",
-					"move",
 				},
-				sync_install = false,
-				auto_install = true,
-				highlight = { enable = true },
-				incremental_selection = {
-					enable = true,
-					keymaps = {
-						init_selection = "<A-o>", -- start selection with Alt+o
-						node_incremental = "<A-o>", -- expand
-						node_decremental = "<A-i>", -- shrink
-						scope_incremental = "<A-s>", -- expand by scope
-					},
-				},
+				callback = function()
+					pcall(vim.treesitter.start)
+				end,
 			})
-			vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+			vim.keymap.set({ "n", "x" }, "<A-o>", "an", {
+				remap = true,
+				desc = "Expand TS selection",
+			})
+
+			vim.keymap.set({ "n", "x" }, "<A-i>", "in", {
+				remap = true,
+				desc = "Shrink TS selection",
+			})
+
+			vim.keymap.set({ "n", "x" }, "<A-s>", "]n", {
+				remap = true,
+				desc = "Next TS node",
+			})
+
+			-- folding
+			vim.opt.foldmethod = "expr"
+			vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+			vim.opt.foldenable = false
 		end,
 	},
 }
