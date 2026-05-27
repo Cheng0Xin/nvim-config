@@ -11,7 +11,9 @@ redexes
 controlplane
 eval
 monoid
+monoids
 semigroup
+semigroups
 fastspell
 nvim
 typst
@@ -20,3 +22,4 @@ parat
 xmake
 deque
 Kleisli
+codomain
