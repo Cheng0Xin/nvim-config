@@ -18,6 +18,9 @@ return {
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				pattern = "*",
 				callback = function()
+					if vim.bo.buftype ~= "" or not vim.bo.modifiable or vim.bo.readonly then
+						return
+					end
 					require("mini.trailspace").trim()
 					require("mini.trailspace").trim_last_lines()
 				end,
