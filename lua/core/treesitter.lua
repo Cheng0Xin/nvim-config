@@ -20,3 +20,11 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile" }, {
 		vim.treesitter.start()
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile" }, {
+	pattern = "*.move",
+	callback = function()
+		vim.treesitter.language.register("move_on_aptos", "move")
+		vim.treesitter.start()
+	end,
+})
