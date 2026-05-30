@@ -5,8 +5,10 @@ return {
 		ft = "agda",
 		dependencies = { "neovimhaskell/nvim-hs.vim", "kana/vim-textobj-user" },
 		version = "*",
+		build = false,
 		init = function()
 			vim.g.cornelis_no_agda_input = 1
+			vim.g.cornelis_use_global_binary = 1
 		end,
 		config = function()
 			-- Keybindings
