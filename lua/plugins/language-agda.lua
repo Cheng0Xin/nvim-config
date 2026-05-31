@@ -68,8 +68,10 @@ return {
 				return
 			end
 
-			for trigger, symbol in pairs(symbols) do
-				vim.fn["cornelis#bind_input"](trigger, symbol)
+			for _, content in pairs(symbols) do
+				for trigger, symbol in pairs(content) do
+					vim.fn["cornelis#bind_input"](trigger, symbol)
+				end
 			end
 
 			-- Exit all the windows when leave
