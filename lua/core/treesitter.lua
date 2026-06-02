@@ -1,6 +1,12 @@
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
+local list_of_languages = { "agda", "cpp", "haskell", "latex", "python", "racket", "rust", "scala", "typst", "lua" }
+
+for _, lang in ipairs(list_of_languages) do
+	vim.treesitter.language.add(lang)
+end
+
 for _, m in ipairs({
 	{ "x", "<M-o>", "an", "Expand selection" },
 	{ "x", "<M-i>", "in", "Shrink selection" },
