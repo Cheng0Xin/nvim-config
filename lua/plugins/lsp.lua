@@ -15,7 +15,6 @@ return {
 					"clangd",
 					"texlab",
 					"pyright",
-					"rust_analyzer",
 					"tinymist",
 					"cssls",
 					"zls",
@@ -39,6 +38,27 @@ return {
 				vim.diagnostic.open_float(nil, { focus = false })
 			end)
 
+			-- For Rust
+			vim.lsp.config("rust_analyzer", {
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+							buildScripts = {
+								enable = true,
+							},
+						},
+						procMacro = {
+							enable = true,
+						},
+						check = {
+							command = "clippy",
+						},
+					},
+				},
+			})
+
+			vim.lsp.enable("rust_analyzer")
 			-- For Haskell
 			vim.lsp.enable("hls")
 			vim.lsp.config("hls", {
