@@ -38,8 +38,12 @@ return {
 				vim.diagnostic.open_float(nil, { focus = false })
 			end)
 
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 			-- For Rust
 			vim.lsp.config("rust_analyzer", {
+				capabilities = capabilities,
 				settings = {
 					["rust-analyzer"] = {
 						cargo = {
@@ -62,12 +66,10 @@ return {
 			-- For Haskell
 			vim.lsp.enable("hls")
 			vim.lsp.config("hls", {
+				capabilities = capabilities,
 				filetypes = { "haskell", "lhaskell" },
 			})
 			-- For CSS
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.textDocument.completion.completionItem.snippetSupport = true
-
 			vim.lsp.enable("cssls")
 			vim.lsp.config("cssls", {
 				capabilities = capabilities,
