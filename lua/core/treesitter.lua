@@ -1,5 +1,5 @@
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 for _, m in ipairs({
 	{ "x", "<M-o>", "an", "Expand selection" },
