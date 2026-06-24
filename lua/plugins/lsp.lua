@@ -42,25 +42,25 @@ return {
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 			-- For Rust
-			vim.lsp.config("rust_analyzer", {
-				capabilities = capabilities,
-				settings = {
-					["rust-analyzer"] = {
-						cargo = {
-							allFeatures = true,
-							buildScripts = {
-								enable = true,
-							},
-						},
-						procMacro = {
-							enable = true,
-						},
-						check = {
-							command = "clippy",
-						},
-					},
-				},
-			})
+			-- vim.lsp.config("rust_analyzer", {
+			-- 	capabilities = capabilities,
+			-- 	settings = {
+			-- 		["rust-analyzer"] = {
+			-- 			cargo = {
+			-- 				allFeatures = true,
+			-- 				buildScripts = {
+			-- 					enable = true,
+			-- 				},
+			-- 			},
+			-- 			procMacro = {
+			-- 				enable = true,
+			-- 			},
+			-- 			check = {
+			-- 				command = "clippy",
+			-- 			},
+			-- 		},
+			-- 	},
+			-- })
 
 			vim.lsp.enable("rust_analyzer")
 			-- For Haskell
