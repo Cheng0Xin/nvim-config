@@ -26,6 +26,10 @@
     {
       "name": "tex",
       "path": "./dict/tex-words.txt"
+    },
+    {
+      "name": "zig",
+      "path": "./dict/zig-words.txt"
     }
   ],
   "dictionaries": [
@@ -39,6 +43,14 @@
         "english",
         "cs-math",
         "rust"
+      ]
+    },
+    {
+      "languageId": "zig",
+      "dictionaries": [
+        "english",
+        "cs-math",
+        "zig"
       ]
     },
     {
@@ -71,7 +83,8 @@
         "english",
         "cs-math",
         "haskell",
-        "rust"
+        "rust",
+        "zig"
       ]
     },
     {
