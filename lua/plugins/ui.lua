@@ -3,7 +3,9 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		config = function()
-			require("lualine").setup()
+			require("lualine").setup({
+				options = { theme = "PaperColor" },
+			})
 			function switch_theme()
 				local sysname = vim.loop.os_uname().sysname
 
@@ -25,6 +27,7 @@ return {
 						]])
 					end
 				else
+					vim.o.background = "dark"
 					vim.cmd.colorscheme("cyberdream")
 				end
 			end
