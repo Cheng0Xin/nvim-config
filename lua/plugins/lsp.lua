@@ -33,6 +33,7 @@ return {
 				update_in_insert = false, -- don't update while typing
 				severity_sort = true, -- sort by severity
 			})
+			vim.lsp.inlay_hint.enable(true)
 
 			vim.keymap.set("n", "<leader>d", function()
 				vim.diagnostic.open_float(nil, { focus = false })
@@ -96,7 +97,18 @@ return {
 				single_file_support = true,
 			})
 			vim.lsp.enable("ts_ls")
-			vim.lsp.inlay_hint.enable(true)
+
+			-- Julia
+			vim.lsp.config("jetls", {
+				cmd = { "jetls", "serve" },
+				filetypes = { "julia" },
+				root_markers = {
+					"JuliaProject.toml",
+					"Project.toml",
+					".git",
+				},
+			})
+			vim.lsp.enable("jetls")
 
 			-- Lua language configuration for neovim only
 			vim.lsp.config("lua_ls", {
