@@ -39,29 +39,17 @@ return {
 				vim.diagnostic.open_float(nil, { focus = false })
 			end)
 
+			vim.api.nvim_create_autocmd("LspAttach", {
+				callback = function(args)
+					local client = vim.lsp.get_client_by_id(args.data.client_id)
+					if client then
+						vim.notify(string.format("LSP attached: %s", client.name))
+					end
+				end,
+			})
+
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-			-- For Rust
-			-- vim.lsp.config("rust_analyzer", {
-			-- 	capabilities = capabilities,
-			-- 	settings = {
-			-- 		["rust-analyzer"] = {
-			-- 			cargo = {
-			-- 				allFeatures = true,
-			-- 				buildScripts = {
-			-- 					enable = true,
-			-- 				},
-			-- 			},
-			-- 			procMacro = {
-			-- 				enable = true,
-			-- 			},
-			-- 			check = {
-			-- 				command = "clippy",
-			-- 			},
-			-- 		},
-			-- 	},
-			-- })
 
 			vim.lsp.enable("rust_analyzer")
 			-- For Haskell
@@ -100,6 +88,7 @@ return {
 
 			-- Julia
 			vim.lsp.config("jetls", {
+				capabilities = capabilities,
 				cmd = { "jetls", "serve" },
 				filetypes = { "julia" },
 				root_markers = {

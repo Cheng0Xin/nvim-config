@@ -5,7 +5,7 @@ return {
 		build = ":TSUpdate",
 		config = function()
 			local list_of_languages =
-				{ "agda", "cpp", "haskell", "latex", "python", "racket", "rust", "scala", "typst", "lua" }
+				{ "agda", "cpp", "haskell", "latex", "python", "racket", "rust", "scala", "typst", "lua", "julia" }
 
 			require("nvim-treesitter").install(list_of_languages)
 		end,
