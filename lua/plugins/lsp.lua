@@ -43,7 +43,7 @@ return {
 				callback = function(args)
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
 					if client then
-						vim.notify(string.format("LSP attached: %s", client.name))
+						-- vim.notify(string.format("LSP attached: %s", client.name))
 					end
 				end,
 			})
