@@ -39,12 +39,16 @@ return {
 				vim.diagnostic.open_float(nil, { focus = false })
 			end)
 
+			vim.keymap.set("n", "<leader>nt", function()
+				local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+				vim.lsp.inlay_hint.enable(not enabled, { bufnr = 0 })
+			end, { desc = "Toggle inlay hints" })
+
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(args)
-					local client = vim.lsp.get_client_by_id(args.data.client_id)
-					if client then
-						-- vim.notify(string.format("LSP attached: %s", client.name))
-					end
+					local _ = vim.lsp.get_client_by_id(args.data.client_id)
+					vim.lsp.inlay_hint.enable(false, { bufnr = 0 })
+					-- vim.notify(string.format("LSP attached: %s", client.name))
 				end,
 			})
 
