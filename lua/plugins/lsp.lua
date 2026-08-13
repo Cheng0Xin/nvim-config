@@ -150,6 +150,8 @@ return {
 					python = { "isort", "black" },
 					xml = { "xmllint" },
 					haskell = { "ormolu" },
+					json = { "prettier" },
+					jsonc = { "prettier" },
 				},
 				formatters = {
 					scalafmt = {
